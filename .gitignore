@@ -1,6 +1,8 @@
 #--------------------------#
 # Magento Default Files    #
 #--------------------------#
+.idea/
+.vagrant/
 
 /app/etc/local.xml
 
