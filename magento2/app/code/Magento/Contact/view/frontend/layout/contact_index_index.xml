@@ -11,9 +11,13 @@
     </head>
     <body>
         <referenceContainer name="content">
+            <block class="Inchoo\Helloworld\Block\Helloworld" name="helloworld" template="helloworld.phtml" />
+        </referenceContainer>
+        <referenceContainer name="content">
             <block class="Magento\Contact\Block\ContactForm" name="contactForm" template="Magento_Contact::form.phtml">
                 <container name="form.additional.info" label="Form Additional Info"/>
             </block>
         </referenceContainer>
+
     </body>
 </page>
