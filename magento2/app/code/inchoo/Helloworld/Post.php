@@ -29,7 +29,7 @@ class Post extends \Magento\Contact\Controller\Index
             $this->_redirect('*/*/');
             return;
         }
-
+        echo '<pre>';print_r($post);echo '</pre>';
         $this->inlineTranslation->suspend();
         try {
             $postObject = new \Magento\Framework\DataObject();
@@ -46,13 +46,27 @@ class Post extends \Magento\Contact\Controller\Index
             if (!\Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
                 $error = true;
             }
-            if (\Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
-                $error = true;
-            }
+
+            //Commented this code because it was throwing exception which I didn't needed
+
+            // if (\Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
+            //     $error = true;
+            // }
+
             if ($error) {
                 throw new \Exception();
             }
-            echo 'Ummar<pre>';print_r($post);echo '</pre>';die;
+            // echo 'Ummar<pre>';print_r($model);echo '</pre>';die;
+            echo 'Ummar'; 
+            $model = Magento::getModel('contacts/contacts');
+            echo 'AMmmar';
+            // $model->setGuestName(trim($post['name']));
+            // $model->setGuestEmail(trim($post['email']));
+            // $model->setGuestTelephone($tele);
+            // $model->setGuestComments(trim($post['comment']));
+            
+            // $model->save(); 
+
             $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
             $transport = $this->_transportBuilder
                 ->setTemplateIdentifier($this->scopeConfig->getValue(self::XML_PATH_EMAIL_TEMPLATE, $storeScope))

@@ -52,7 +52,7 @@ class Post extends \Magento\Contact\Controller\Index
             if ($error) {
                 throw new \Exception();
             }
-
+            echo 'Ummar<pre>';print_r($post);echo '</pre>';die;
             $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
             $transport = $this->_transportBuilder
                 ->setTemplateIdentifier($this->scopeConfig->getValue(self::XML_PATH_EMAIL_TEMPLATE, $storeScope))

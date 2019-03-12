@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Amit_Customcontactus>
+            <version>1.0.1</version>
+        </Amit_Customcontactus>
+    </modules>
+    <global>
+    <!-- Call Model -->
+    <global>
+        <models>
+            <customcontactus>
+                <class>Amit_Customcontactus_Model</class>
+                <resourceModel>customcontactus_resource</resourceModel>
+            </customcontactus>
+            <customcontactus_resource>
+                <class>Amit_Customcontactus_Model_Resource</class>
+                <entities>
+                    <customcontactus>
+                        <table>customer_callback</table>
+                    </customcontactus>
+                </entities>
+            </customcontactus_resource>
+        </models>
+        <resources>
+            <customcontactus_setup>
+                <setup>
+                    <module>Amit_Customcontactus</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </customcontactus_setup>
+            <customcontactus_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </customcontactus_read>
+            <customcontactus_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </customcontactus_write>
+        </resources>
+        <!-- helper -->
+        <helpers>
+            <customcontactus>
+                <class>Amit_Customcontactus_Helper</class>
+            </customcontactus>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <customcontactus>
+                <use>standard</use>
+                <args>
+                    <module>Amit_Customcontactus</module>
+                    <frontName>customcontactus</frontName>
+                </args>
+            </customcontactus>
+        </routers>
+    </frontend>
+    <global>
+        <rewrite>
+            <customcontactus>
+                <from><![CDATA[#^/contacts/index/#]]></from>
+                <to>/customcontactus/index/</to>
+            </customcontactus>
+        </rewrite>
+    </global>
+
+</config>
